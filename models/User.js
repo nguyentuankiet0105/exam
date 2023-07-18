@@ -8,5 +8,3 @@ class User {
  }
 }
 
-const newUser = new User({ firstName: 'Tuan', lastName: 'Kiet', username: 'tuankiet', password: 'kiet@123' });
-console.log("🚀 ~ file: User.js:12 ~ newUser:", newUser)
