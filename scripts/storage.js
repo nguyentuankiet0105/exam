@@ -18,6 +18,10 @@ const getUsers = () => {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
+ if (!localStorage.getItem(KEY)) {
+  setStorage("KEY", "USER_ARRAY")
+  setStorage("USER_ARRAY", "[]")
+ }
  getUsers()
 })
 

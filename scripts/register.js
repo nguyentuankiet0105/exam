@@ -1,45 +1,48 @@
 'use strict'
-const firstName = document.getElementById('input-firstname').value;
-const lastName = document.getElementById('input-lastname').value;
-const username = document.getElementById('input-username').value;
-const password = document.getElementById('input-password').value;
-const passwordConfirm = document.getElementById('input-password-confirm').value;
+const firstName = document.querySelector('#input-firstname');
+const lastName = document.querySelector('#input-lastname');
+const username = document.querySelector('#input-username');
+const password = document.querySelector('#input-password');
+const passwordConfirm = document.querySelector('#input-password-confirm');
+const form = document.querySelector('form')
 
-const isDuplicateUsername = (username) => {
- return window.userArr.some(item => item.username === username)
+const showError = (input, message) => {
+ let parent = input.parentElement
+ let small = parent.querySelector('small')
+ parent.classList.add('error')
+ small.innerText = message
+}
+const showSuccess = (input) => {
+ let parent = input.parentElement
+ let small = parent.querySelector('small')
+ parent.classList.remove('error')
+ small.innerText = ""
 }
 
-const isValidateForm = () => {
- if (!firstName || !lastName || !username || !password || !passwordConfirm) {
-  alert('Vui lòng nhập đủ thông tin !')
-  return false;
- }
- if (isDuplicateUsername(username)) {
-  alert('username đã bị trùng, hãy nhập username mới!')
-  return false;
- }
- if (password !== passwordConfirm) {
-  alert('confirm password chưa đúng!')
-  return false;
- }
- if (password.trim().length <= 8) {
-  alert(' password phải nhiều hơn 8 ký tự!')
-  return false;
- }
+const isRequired = (listItem) => {
+ listItem.forEach(item => {
+  item.value = item.value.trim()
 
- return true
-}
-
-const register = () => {
- const userItem = new User({
-  firstName: firstName,
-  lastName: lastName,
-  username: username,
-  password: password,
+  if (!item.value) {
+   showError(item, "Vui long nhap thong tin")
+  } else {
+   showSuccess(item)
+  }
  })
- if (!isValidateForm()) {
-  window.userArr.push(userItem)
-  saveUsers(window.userArr);
-  alert("tạo thành công")
- }
 }
+
+form.addEventListener("submit", function (e) {
+ e.preventDefault()
+ isRequired([firstName, lastName, username, password, passwordConfirm])
+})
+
+// const register = () => {
+//  const userItem = new User({
+//   firstName: firstName,
+//   lastName: lastName,
+//   username: username,
+//   password: password,
+//  })
+//  window.userArr.push(userItem)
+//  saveUsers(window.userArr);
+// }
