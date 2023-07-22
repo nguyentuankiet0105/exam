@@ -50,10 +50,13 @@ const checkMatchPassword = (passwordItem, cfmPasswordItem) => {
 
 const checkDuplicate = (input) => {
  input.value = input.value.trim()
- if (userArr.some(item => item.value === input.value)) {
+ if (window.userArr.some(item => input.value === item.username)) {
+  showError(input, `${input.name} is duplicate`)
   return true
+ } else {
+  showSuccess(input)
+  return false
  }
- return false
 }
 
 const resetForm = (listItem) => {
