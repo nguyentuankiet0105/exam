@@ -5,44 +5,38 @@ const username = document.querySelector('#input-username');
 const password = document.querySelector('#input-password');
 const passwordConfirm = document.querySelector('#input-password-confirm');
 const form = document.querySelector('form')
+let successText = document.querySelector('.success')
 
-const showError = (input, message) => {
- let parent = input.parentElement
- let small = parent.querySelector('small')
- parent.classList.add('error')
- small.innerText = message
-}
-const showSuccess = (input) => {
- let parent = input.parentElement
- let small = parent.querySelector('small')
- parent.classList.remove('error')
- small.innerText = ""
-}
+const formRegisterInput = [firstName, lastName, username, password, passwordConfirm]
 
-const isRequired = (listItem) => {
- listItem.forEach(item => {
-  item.value = item.value.trim()
-
-  if (!item.value) {
-   showError(item, "Vui long nhap thong tin")
-  } else {
-   showSuccess(item)
+const isvalid = () => {
+ const isEmpty = isRequired(formRegisterInput)
+ if (!isEmpty) {
+  if (checkLength(password, 8) ||
+   checkMatchPassword(password, passwordConfirm) ||
+   checkDuplicate(username)) {
+   return false
   }
- })
+  return true
+ }
+ return false
 }
 
 form.addEventListener("submit", function (e) {
  e.preventDefault()
- isRequired([firstName, lastName, username, password, passwordConfirm])
+ const userItem = new User({
+  firstName: firstName.value,
+  lastName: lastName.value,
+  username: username.value,
+  password: password.value,
+ })
+ if (isvalid()) {
+  window.userArr.push(userItem)
+  saveUsers(window.userArr);
+  resetForm(formRegisterInput)
+  successText.innerText = "Successfully !!!!"
+  setTimeout(() => {
+   successText.innerText = ""
+  }, 2000)
+ }
 })
-
-// const register = () => {
-//  const userItem = new User({
-//   firstName: firstName,
-//   lastName: lastName,
-//   username: username,
-//   password: password,
-//  })
-//  window.userArr.push(userItem)
-//  saveUsers(window.userArr);
-// }
