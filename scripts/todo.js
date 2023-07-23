@@ -15,11 +15,15 @@ const renderTodoList = () => {
  todoList.innerHTML = ""
  const todoListOfOwner = window.todoArr.filter(item => item.owner === currentUser.username)
  todoListOfOwner.forEach(item => {
-  const todoItem = `<li class="todo-item">${item.task}<span class="close">×</span></li>`
+  const todoItem = `
+  <li onclick="checkItem('${item.task}')" class="todo-item ${item.isDone ? "checked" : ""}">
+   <span >${item.task}</span> 
+   <span class="close" onclick="deleteItem('${item.task}')">×</span>
+  </li>`
+
   todoList.insertAdjacentHTML('afterbegin', todoItem);
  });
 }
-
 const addItem = () => {
  inputTask.value = inputTask.value.trim()
  const isEmpty = isRequired([inputTask])
@@ -35,4 +39,16 @@ const addItem = () => {
   renderTodoList()
  }
 }
-
+const checkItem = (taskChecked) => {
+ const item = window.todoArr.find(item => item.task === taskChecked);
+ if (item) {
+  item.isDone = !item.isDone;
+  saveTodos(window.todoArr)
+  renderTodoList();
+ }
+}
+const deleteItem = (taskChecked) => {
+ newTodoArr = window.todoArr.filter(item => item.task !== taskChecked);
+ saveTodos(newTodoArr)
+ renderTodoList();
+}
