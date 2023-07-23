@@ -8459,3 +8459,33 @@ a[data-toggle="collapse"] {
   font-size: 20px;
   color: #28a745;
 }
+.article {
+  max-width: 880px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  border: 1px solid #d7d7d7;
+  max-height: 169px;
+  height: 100%;
+}
+.article img{
+  width: 30%;
+}
+.article .content{
+  width: 68%;
+  padding: 5px;
+}
+.article .content h6{
+  color: black
+}
+.article .content p{
+  font-size: 12px;
+}
+.article .content button{
+  background: #2A95BF;
+  border: none;
+  border-radius: 10px;
+}
+.article .content a{
+  color: white
+}
