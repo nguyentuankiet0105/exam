@@ -22,8 +22,7 @@ const isvalid = () => {
  return false
 }
 
-form.addEventListener("submit", function (e) {
- e.preventDefault()
+const register = () => {
  const userItem = new User({
   firstName: firstName.value,
   lastName: lastName.value,
@@ -37,6 +36,12 @@ form.addEventListener("submit", function (e) {
   successText.innerText = "Successfully !!!!"
   setTimeout(() => {
    successText.innerText = ""
-  }, 2000)
+   window.location.href = '../pages/login.html';
+  }, 1200)
  }
+}
+
+form.addEventListener("submit", function (e) {
+ e.preventDefault()
+ register()
 })
