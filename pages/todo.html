@@ -40,23 +40,12 @@
 			<!-- Todo List -->
 			<div id="todo-container">
 				<div class="todo-list-header">
-					<input type="text" placeholder="Title..." id="input-task">
-					<span id="btn-add">Add</span>
+					<input name="task" type="text" placeholder="Title..." id="input-task">
+					<span id="btn-add" onclick="addItem()">Add</span>
+					<small></small>
 				</div>
 				<ul id="todo-list">
-					<li>
-						Hit the gym
-						<span class="close">×</span>
-					</li>
 					<li class="checked">Pay bills<span class="close">×</span></li>
-					<li>Meet George<span class="close">×</span></li>
-					<li>Buy eggs<span class="close">×</span></li>
-					<li>Read a book<span class="close">×</span></li>
-					<li>Organize office<span class="close">×</span></li>
-					<li>Meet George<span class="close">×</span></li>
-					<li>Buy eggs<span class="close">×</span></li>
-					<li>Read a book<span class="close">×</span></li>
-					<li>Organize office<span class="close">×</span></li>
 				</ul>
 			</div>
 
@@ -65,6 +54,7 @@
 
 	<script src="../models/User.js"></script>
 	<script src="../scripts//storage.js"></script>
+	<script src="../scripts/common.validate.js"></script>
 	<script src="../scripts/todo.js"></script>
 </body>
 

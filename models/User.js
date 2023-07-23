@@ -8,3 +8,11 @@ class User {
  }
 }
 
+class Todo {
+ constructor({ task: task, owner: owner, isDone: isDone }) {
+  this.task = task;
+  this.owner = owner;
+  this.isDone = isDone;
+ }
+}
+
