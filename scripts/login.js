@@ -28,8 +28,9 @@ const showMessage = (isLogin) => {
 const login = () => {
  username.value = username.value.trim();
  password.value = password.value.trim();
+ console.log(getUsers());
  if (isValid()) {
-  const isLogin = window.userArr.find(item => username.value === item.username && password.value === item.password)
+  const isLogin = getUsers().find(item => username.value === item.username && password.value === item.password)
   if (isLogin) {
    const currentUser = {
     username: username.value,
@@ -37,6 +38,9 @@ const login = () => {
    }
    setStorage("currentUser", JSON.stringify(currentUser))
    showMessage(isLogin)
+   setTimeout(() => {
+    window.location.href = '../index.html';
+   }, 800)
   } else {
    showMessage(isLogin)
   }

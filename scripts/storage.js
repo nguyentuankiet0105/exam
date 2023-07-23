@@ -8,13 +8,18 @@ const setStorage = (key, value) => {
 
 const KEY = "USER_ARRAY";
 window.userArr = JSON.parse(getFromStorage(KEY)) || [];
+window.todoArr = JSON.parse(getFromStorage("todoArr")) || [];
 
 const saveUsers = (users) => {
  setStorage(KEY, JSON.stringify(users))
 }
 
+const saveTodos = (todoItem) => {
+ setStorage("todoArr", JSON.stringify(todoItem))
+}
+
 const getUsers = () => {
- userArr = JSON.parse(getFromStorage(KEY)) || []
+ return userArr = JSON.parse(getFromStorage(KEY)) || []
 }
 
 window.addEventListener('DOMContentLoaded', () => {
