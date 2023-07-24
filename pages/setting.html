@@ -44,7 +44,7 @@
 							<div class="form-group row mb-3">
 								<label for="input-page-size" class="col-sm-3 col-form-label">News per page</label>
 								<div class="col-sm-9">
-									<input type="number" class="form-control" id="input-page-size"
+									<input min="1" type="number" class="form-control" id="input-page-size"
 										placeholder="Input News per page">
 								</div>
 							</div>
@@ -62,8 +62,9 @@
 									</select>
 								</div>
 							</div>
-							<button type="button" class="btn btn-primary" id="btn-submit">Save Settings</button>
+							<button type="button" class="btn btn-primary" id="btn-submit" onclick="submitSetting()">Save Settings</button>
 						</form>
+						<span class="login-message"></span>
 					</div>
 				</div>
 			</div>
@@ -72,6 +73,7 @@
 
 	<script src="../models/User.js"></script>
 	<script src="../scripts/storage.js"></script>
+	<script src="../scripts/news.js"></script>
 	<script src="../scripts/setting.js"></script>
 </body>
 

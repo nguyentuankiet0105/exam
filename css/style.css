@@ -8465,7 +8465,7 @@ a[data-toggle="collapse"] {
   /* justify-content: space-between; */
   margin-bottom: 15px;
   border: 1px solid #d7d7d7;
-  max-height: 300px;
+  max-height: auto;
   height: 100%;
 }
 .article img{
