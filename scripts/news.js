@@ -27,7 +27,7 @@ class user {
     articles.forEach(item => {
       const articleItem = `
         <div class="article">
-        <img src="${item.urlToImage}" alt="">
+        <img src="${item.urlToImage ?? ''}" alt="">
           <div class="content">
             <h6>${item.title}</h6>
             <p>${item.description}</p>
@@ -35,7 +35,7 @@ class user {
           </div>
         </div>
       `;
-      newsContainer.insertAdjacentHTML("afterbegin", articleItem)
+      newsContainer.insertAdjacentHTML("beforeend", articleItem)
     });
 
   }
