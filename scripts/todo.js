@@ -48,7 +48,7 @@ const checkItem = (taskChecked) => {
  }
 }
 const deleteItem = (taskChecked) => {
- newTodoArr = window.todoArr.filter(item => item.task !== taskChecked);
- saveTodos(newTodoArr)
+ window.todoArr = window.todoArr.filter(item => item.task !== taskChecked);
+ saveTodos(window.todoArr)
  renderTodoList();
 }
