@@ -10,7 +10,7 @@ const settings = JSON.parse(getFromStorage("settings")) || {}
 
 window.addEventListener("DOMContentLoaded", () => {
   if (!localStorage.getItem("settings")) {
-    setStorage("settings", JSON.stringify({ category: "science", pageSize: 10 }))
+    setStorage("settings", JSON.stringify({ category: "Science", pageSize: 10 }))
   }
 })
 class user {
