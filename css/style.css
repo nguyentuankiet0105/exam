@@ -8460,20 +8460,21 @@ a[data-toggle="collapse"] {
   color: #28a745;
 }
 .article {
-  max-width: 880px;
+  max-width: auto;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   margin-bottom: 15px;
   border: 1px solid #d7d7d7;
-  max-height: 169px;
+  max-height: 300px;
   height: 100%;
 }
 .article img{
-  width: 30%;
+  max-width: 275px;
+  width: 100%;
 }
 .article .content{
-  width: 68%;
-  padding: 5px;
+  width: auto;
+  padding: 15px;
 }
 .article .content h6{
   color: black
