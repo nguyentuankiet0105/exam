@@ -8449,3 +8449,44 @@ a[data-toggle="collapse"] {
 
 .subscribe-form .form-control {
   background: #4897fc; }
+
+.error {
+  color: red
+}
+.success{
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  color: #28a745;
+}
+.article {
+  max-width: auto;
+  display: flex;
+  /* justify-content: space-between; */
+  margin-bottom: 15px;
+  border: 1px solid #d7d7d7;
+  max-height: auto;
+  height: 100%;
+}
+.article img{
+  max-width: 275px;
+  width: 100%;
+}
+.article .content{
+  width: auto;
+  padding: 15px;
+}
+.article .content h6{
+  color: black
+}
+.article .content p{
+  font-size: 12px;
+}
+.article .content button{
+  background: #2A95BF;
+  border: none;
+  border-radius: 10px;
+}
+.article .content a{
+  color: white
+}
