@@ -8490,3 +8490,27 @@ a[data-toggle="collapse"] {
 .article .content a{
   color: white
 }
+
+.scroll-button {
+  max-width: 50px;
+  max-height: 50px;
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  border: none;
+  background-color: transparent;
+}
+
+#scroll-top {
+  display:none;
+}
+#scroll-top img{
+  width: 100%;
+  height: 100%;
+}
+
+#scroll-bot img{
+  transform: rotate(180deg);
+  width: 100%;
+  height: 100%;
+}

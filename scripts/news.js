@@ -6,6 +6,8 @@ const newsContainer = document.querySelector("#news-container")
 const pageNum = document.querySelector('#page-num');
 const btnPrev = document.querySelector('#btn-prev');
 const btnNext = document.querySelector('#btn-next');
+const btnScrollTop = document.querySelector('#scroll-top');
+const btnScrollBot = document.querySelector('#scroll-bot');
 const settings = JSON.parse(getFromStorage("settings")) || {}
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -84,6 +86,20 @@ class user {
       btnNext.disabled = false;
     }
   }
+
+  scrollTop() {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
+  scrollBottom() {
+    window.scroll({
+      top: document.documentElement.offsetHeight,
+      behavior: 'smooth'
+    })
+  }
 }
 
 const userAction = new user()
@@ -97,3 +113,21 @@ if (btnPrev && btnNext) {
     userAction.onNext()
   });
 }
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 200) {
+    btnScrollTop.style.display = 'block'
+    btnScrollBot.style.display = 'none'
+  } else {
+    btnScrollTop.style.display = 'none'
+    btnScrollBot.style.display = 'block'
+  }
+})
+
+btnScrollTop.addEventListener('click', () => {
+  userAction.scrollTop()
+})
+
+btnScrollBot.addEventListener('click', () => {
+  userAction.scrollBottom()
+})
